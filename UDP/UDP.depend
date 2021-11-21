@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1637339389 source:d:\studia\_projekty\sieci\projekt1\c\udp\main.c
+	<stdio.h>
+	<winsock2.h>
+
+1637236769 source:d:\studia\_projekty\sieci\projekt1\c\udp\2nd.c
+

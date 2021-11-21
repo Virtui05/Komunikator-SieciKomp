@@ -22,6 +22,8 @@ namespace WpfStart
     /// </summary>
     public partial class MainWindow : Window
     {
+        Task connection;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -36,7 +38,13 @@ namespace WpfStart
             }
         }
 
-        private void Connect(object sender, RoutedEventArgs ae)
+        private void ConnectAsync(object sender, RoutedEventArgs ae)
+        {
+            connection = Task.Run(() => Connect());
+            
+        }
+
+        private void Connect()
         {
             int listenPort = 8888; //port
             UdpClient listener = new UdpClient(listenPort);
@@ -45,12 +53,12 @@ namespace WpfStart
             try
             {
                 while (true)
-                {      
+                {
                     Console.WriteLine("Waiting for broadcast");
                     byte[] bytes = listener.Receive(ref groupEP);
 
                     MessageBox.Show($"Received broadcast from {groupEP} :" +
-                        $"\n {Encoding.ASCII.GetString(bytes, 0, bytes.Length)}");
+                     $"\n {Encoding.UTF8.GetString(bytes, 0, bytes.Length)}");
                 }
             }
             catch (SocketException e)

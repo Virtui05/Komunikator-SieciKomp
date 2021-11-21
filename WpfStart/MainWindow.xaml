@@ -30,7 +30,7 @@
         <ListBox Grid.Row="2" Grid.Column="0"  />
 
         <StackPanel Grid.Row="2" Grid.Column="1" Margin="5,0,0,0">
-            <Button x:Name="btnConnect" Margin="0,5,0,0" Click="Connect">Connect</Button>
+            <Button x:Name="btnConnect" Margin="0,5,0,0" Click="ConnectAsync">Connect</Button>
         </StackPanel>
 
     </Grid>
